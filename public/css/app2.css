@@ -1,0 +1,11 @@
+.table1 {
+    width: 75%;
+}
+
+th, .c1 {
+    text-align: center;
+}
+
+th, td {
+    padding: 5px 10px;
+}
