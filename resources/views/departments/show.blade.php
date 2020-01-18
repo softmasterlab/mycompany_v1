@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Департаменты
+    {{ $dep->dep_name }}
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Управление департаментами</h4>
+                    <h4>{{ $dep->dep_name }}</h4>
                 </div>
 
                 <div class="card-body">
@@ -20,20 +20,20 @@
                         </div>
                     @endif
 
-                    <h5>Список департаментов</h5>
+                    <h5>Список должностей</h5>
                     <table class="table1" border="1">
                         <tr>
-                            <th>Dep_Id</th>
-                            <th>Dep_Name</th>
-                            <th>Dep_Manage</th>
+                            <th>Pos_Id</th>
+                            <th>Pos_Name</th>
+                            <th>Pos_Manage</th>
                         </tr>
-                        @foreach ($deps as $dep)
+                        @foreach ($poss as $pos)
                             <tr>
-                                <td class="c1">{{ $dep->id }}</td>
-                                <td>{{ $dep->dep_name }}</td>
+                                <td class="c1">{{ $pos->id }}</td>
+                                <td>{{ $pos->pos_name }}</td>
                                 <td class="c1">
                                     |
-                                    <a href="{{ url('departments/'.$dep->id) }}">Details</a>
+                                    <a href="">Details</a>
                                     |
                                     <a href="">Edit</a>
                                     |
@@ -43,6 +43,8 @@
                             </tr>
                         @endforeach
                     </table>
+                    <br>
+                    <a href="{{ url('departments') }}">Назад к списку депртаментов</a>
                 </div>
             </div>
         </div>
