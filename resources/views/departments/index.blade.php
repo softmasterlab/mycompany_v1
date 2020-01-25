@@ -21,6 +21,10 @@
                     @endif
 
                     <h5>Список департаментов</h5>
+                    @if ($user != null && $user->name == 'admin1')
+                        <a href="{{ url('departments/create') }}">Добавить департамент</a>
+                        <br><br>
+                    @endif
                     <table class="table1" border="1">
                         <tr>
                             <th>Dep_Id</th>
@@ -35,10 +39,12 @@
                                     |
                                     <a href="{{ url('departments/'.$dep->id) }}">Details</a>
                                     |
+                                    @if ($user != null && $user->name == 'admin1')
                                     <a href="">Edit</a>
                                     |
                                     <a href="">Delete</a>
                                     |
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
