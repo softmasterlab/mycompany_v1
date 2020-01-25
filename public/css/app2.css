@@ -9,3 +9,7 @@ th, .c1 {
 th, td {
     padding: 5px 10px;
 }
+
+.center {
+    text-align: center;
+}

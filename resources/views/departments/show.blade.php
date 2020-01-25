@@ -44,6 +44,39 @@
                         @endforeach
                     </table>
                     <br>
+
+                    <h5>Список сотрудников</h5>
+                    <table width="100%" border="1">
+                        <tr>
+                            <th>Emp_Id</th>
+                            <th>Emp_Name</th>
+                            <th>Birth_Day</th>
+                            <th>Gender</th>
+                            <th>Pos_Name</th>
+                            <th>Salary</th>
+                            <th>Emp_Management</th>
+                        </tr>
+                        @foreach ($emps as $emp)
+                            <tr>
+                                <td class="center">{{ $emp['person']->id }}</td>
+                                <td>{{ $emp['person']->emp_name }}</td>
+                                <td class="center">{{ $emp['person']->birth_day }}</td>
+                                <td class="center">{{ $emp['person']->gender }}</td>
+                                <td class="center">{{ $emp['pos_name'] }}</td>
+                                <td class="center">{{ $emp['person']->salary }}</td>
+                                <td class="center">
+                                    |
+                                    <a href="">Details</a>
+                                    |
+                                    <a href="">Edit</a>
+                                    |
+                                    <a href="">Delete</a>
+                                    |
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                    <br>
                     <a href="{{ url('departments') }}">Назад к списку депртаментов</a>
                 </div>
             </div>
