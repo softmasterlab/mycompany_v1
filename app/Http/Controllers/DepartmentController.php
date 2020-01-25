@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Department;
 use App\Position;
@@ -18,7 +19,8 @@ class DepartmentController extends Controller
     {
         $deps = Department::all();
         $context = [
-            'deps' => $deps
+            'deps' => $deps,
+            'user' => Auth::user()
         ];
         return view('departments.index', $context);
     }
@@ -30,7 +32,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('departments.create');
     }
 
     /**
