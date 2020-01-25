@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Department;
 use App\Position;
+use App\Employee;
 
 class DepartmentController extends Controller
 {
@@ -53,9 +54,20 @@ class DepartmentController extends Controller
     {
         $dep = Department::find($id);
         $poss = Position::where('dep_id', $id)->get();
+        $emps = [];
+        foreach ($poss as $pos) {
+            $group = Employee::where('pos_id', $pos->id)->get();
+            foreach ($group as $emp) {
+                $emps[] = [
+                    'pos_name' => $pos->pos_name,
+                    'person' => $emp
+                ];
+            }
+        }
         $context = [
             'dep' => $dep,
-            'poss' => $poss
+            'poss' => $poss,
+            'emps' => $emps
         ];
         return view('departments.show', $context);
     }
